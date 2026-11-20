@@ -7,30 +7,30 @@ This repository documents an end-to-end **Microsoft Defender for Endpoint (EDR)*
 
 ## Architecture & Implemented Controls
 
-### 1. Windows 11 EDR Onboarding & Device Inventory (`01-EDR-Onboarding`)
+### 1. Windows 11 EDR Onboarding & Device Inventory (`01-Endpoint-Onboarding`)
 - **Automated Intune EDR Policy:** Deployed the Defender for Endpoint onboarding package via Microsoft Intune to Azure AD-joined Windows 11 devices (`TESTUSER-1`).
 - **Sensor & Telemetry Verification:** Confirmed active `MsSense.exe` sensor health, exposure level telemetry, and active device onboarding status inside the Microsoft Defender XDR Device Inventory.
 
-<img src="01-EDR-Onboarding/01-edr-device-inventory.png" alt="EDR Device Inventory" width="100%"/>
+<img src="01-Endpoint-Onboarding/01-mde-endpoint-onboarded-active.png" alt="MDE Endpoint Onboarded Active" width="100%"/>
 
 ---
 
-### 2. Attack Surface Reduction (ASR) Hardening via Intune (`02-ASR-Hardening`)
+### 2. Attack Surface Reduction (ASR) Hardening via Intune (`02-ASR-Hardening-Policies`)
 - **Zero-Trust Endpoint Hardening:** Configured and enforced Intune Endpoint Security Attack Surface Reduction policies in **Block** mode to neutralize common initial-access vectors:
   - Blocked executable content from email clients and webmail.
   - Blocked Office applications from creating child processes and injecting code into other processes.
   - Blocked credential stealing from the Windows Local Security Authority Subsystem (`lsass.exe`).
   - Blocked execution of potentially obfuscated scripts and untrusted unsigned processes from USB drives.
 
-<img src="02-ASR-Hardening/02-intune-asr-policy.png" alt="Intune ASR Hardening Policy" width="100%"/>
+<img src="02-ASR-Hardening-Policies/02-asr-hardening-rules-config.png" alt="Intune ASR Hardening Rules" width="100%"/>
 
 ---
 
-### 3. Live Threat Simulation & EDR Process-Tree Alert (`03-Live-EICAR-Alert`)
+### 3. Live Threat Simulation & EDR Process-Tree Alert (`03-EDR-Alert-Investigation`)
 - **Controlled Detection Validation:** Executed a controlled EICAR antivirus/EDR test payload on `TESTUSER-1` to validate real-time behavioral detection, automated quarantine, and incident correlation.
 - **Incident & Alert Investigation:** Verified incident generation, MITRE ATT&CK technique mapping, and full endpoint process-tree telemetry inside the Microsoft Defender XDR Incidents & Alerts queue.
 
-<img src="03-Live-EICAR-Alert/03-defender-eicar-alert.png" alt="Defender EICAR Alert" width="100%"/>
+<img src="03-EDR-Alert-Investigation/03-eicar-edr-alert-investigation.png" alt="Defender EICAR Alert Investigation" width="100%"/>
 
 ---
 
