@@ -1,4 +1,3 @@
-$readme = @'
 
 \# Module 10: Enterprise Microsoft Defender for Endpoint (EDR) \& ASR Hardening Lab
 
